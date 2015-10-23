@@ -1,0 +1,49 @@
+<div class="col-md-3" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <div class="page-header">
+        <h1>New Car</h1>
+        <h2>{{ctrl.title}}</h2>
+    </div>
+
+    <form role="form" ng-controller="CarController as ctrl">
+        <!-- Year -->
+        <div class="form-group">
+            <label class="btn-info">Year</label>
+            <input type="text" class="form-control" name="year" ng-model="ctrl.newCar.year" placeholder="Year"/>
+        </div>
+
+        <!-- Registered -->
+        <div class="form-group">
+            <label class="btn-info">Registered</label>
+            <input type="text" class="form-control" name="registered" ng-model="ctrl.newCar.registered" placeholder="Date of register" />
+        </div>
+
+        <!-- Make -->
+        <div class="form-group">
+            <label class="btn-info">Make</label>
+            <input type="text" class="form-control" name="make" ng-model="ctrl.newCar.make" placeholder="Make"/>
+        </div>
+
+        <!-- Model -->
+        <div class="form-group">
+            <label class="btn-info">Model</label>
+            <input type="text" class="form-control" name="model" ng-model="ctrl.newCar.model" placeholder="Model" />
+        </div>
+
+        <!-- Description -->
+        <div class="form-group">
+            <label class="btn-info">Description</label>
+            <input type="text" class="form-control" name="description" ng-model="ctrl.newCar.description" placeholder="Description" />
+        </div>
+
+        <!-- Price -->
+        <div class="form-group">
+            <label class="btn-info">Price</label>
+            <input type="text" class="form-control" name="price" ng-model="ctrl.newCar.price" placeholder="Price" />
+        </div>
+
+        <input type="hidden" ng-model="ctrl.newCar.id" />
+
+        <input type="button" class="btn btn-primary" id="addCar" ng-click="ctrl.add()" value="Save" />
+        <input type="button" class="btn btn-info" value="Cancel" ng-click="" />
+    </form>
+</div>

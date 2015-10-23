@@ -1,0 +1,50 @@
+<div class="container" ng-controller="CarViewController as ctrlView">
+
+    <h1>{{ctrl.title}}</h1>
+    <h2>Number of cars: {{ctrlView.cars.lenght}}</h2>
+    <input type="search" ng-model="carfilter" placeholder="Filter cars">
+
+
+    <div>
+        <div class="col-md-9">
+            <table class="table">
+                <thead >
+                    <tr>
+                        <td>ID</td>
+                        <td><a href="" ng-click="ctrlView.predicate = 'year';
+                                    ctrlView.reverse = !ctrlView.reverse">Year</a></td>
+                        <td><a href="" ng-click="ctrlView.predicate = 'registered';
+                                    ctrlView.reverse = !ctrlView.reverse">Registered</a></td>
+                        <td><a href="" ng-click="ctrlView.predicate = 'make';
+                                    ctrlView.reverse = !ctrlView.reverse">Make</a></td>
+                        <td><a href="" ng-click="ctrlView.predicate = 'model';
+                                    ctrlView.reverse = !ctrlView.reverse">Model</a></td>
+                        <td><a href="" ng-click="ctrlView.predicate = 'description';
+                                    ctrlView.reverse = !ctrlView.reverse">Description</a></td>
+                        <td><a href="" ng-click="ctrlView.predicate = 'price';
+                                    ctrlView.reverse = !ctrlView.reverse">Price</a></td>
+                        <td><a>Action</a></td>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr  ng-repeat="car in ctrlView.cars| filter: carfilter | orderBy:ctrlView.predicate:ctrlView.reverse">
+                        <td>{{car.id}}</td>
+                        <td>{{car.year}}</td>
+                        <td>{{car.registered| date }}</td>
+                        <td>{{car.make}}</td>
+                        <td>{{car.model}}</td>
+                        <td>{{car.description}}</td>
+                        <td>{{car.price| currency}}</td>
+                        <td>
+                            <a href="#/AddCar/{{car.id}}">edit</a> |
+                            <a href="#" ng-click="ctrlView.delete(car.id)">delete</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Sort Column: {{ctrlView.predicate}}</h4>
+            <h4>Reverse: {{ctrlView.reverse}}</h4>
+        </div>
+    </div>
+</div>
